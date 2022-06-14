@@ -19,13 +19,14 @@ class Circle {
 
 class AreaCalculator {
   static calculate(shape) {
-    switch (shape) {
-      case square:
-        return square.side * square.side;
-      case rectangle:
-        return rectangle.width * rectangle.height;
-      case circle:
-        return Math.PI * circle.radius * circle.radius;
+    if (shape.side) {
+      return shape.side * shape.side;
+    }
+    if (shape.width || shape.height) {
+      return shape.width * shape.height;
+    }
+    if (shape.radius) {
+      return Math.PI * shape.radius ** 2;
     }
   }
 }
